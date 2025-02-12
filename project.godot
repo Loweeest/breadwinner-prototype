@@ -11,11 +11,14 @@ config_version=5
 [application]
 
 config/name="Prototype"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/Home.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+TransitionScreen="*res://scenes/transition_screen.tscn"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
