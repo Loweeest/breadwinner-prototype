@@ -25,6 +25,54 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_370f7"]
 radius = 9.0
 
+[sub_resource type="Animation" id="Animation_2vbty"]
+resource_name = "Attack1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_r5h4y"), ExtResource("14_n6a56"), ExtResource("15_nyxr8"), ExtResource("16_yyurg")]
+}
+
+[sub_resource type="Animation" id="Animation_f04cw"]
+resource_name = "Attack2"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_0f7p7"), ExtResource("18_i8icf"), ExtResource("19_3irmb"), ExtResource("20_44p5v"), ExtResource("21_bl42n")]
+}
+
+[sub_resource type="Animation" id="Animation_c4acu"]
+resource_name = "Fall"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("20_3ouxj")]
+}
+
 [sub_resource type="Animation" id="Animation_2wt5a"]
 resource_name = "Idle"
 length = 0.5
@@ -40,6 +88,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_dd767"), ExtResource("3_vl86c"), ExtResource("4_33g5o"), ExtResource("5_g74wi"), ExtResource("6_irwmg"), ExtResource("7_6enq3")]
+}
+
+[sub_resource type="Animation" id="Animation_hblor"]
+resource_name = "Jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_f0h0t"), ExtResource("16_hny31"), ExtResource("18_e7r8l"), ExtResource("19_fedtv")]
 }
 
 [sub_resource type="Animation" id="Animation_cf1se"]
@@ -71,70 +135,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_dd767")]
-}
-
-[sub_resource type="Animation" id="Animation_hblor"]
-resource_name = "Jump"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("17_f0h0t"), ExtResource("16_hny31"), ExtResource("18_e7r8l"), ExtResource("19_fedtv")]
-}
-
-[sub_resource type="Animation" id="Animation_c4acu"]
-resource_name = "Fall"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("20_3ouxj")]
-}
-
-[sub_resource type="Animation" id="Animation_2vbty"]
-resource_name = "Attack1"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("13_r5h4y"), ExtResource("14_n6a56"), ExtResource("15_nyxr8"), ExtResource("16_yyurg")]
-}
-
-[sub_resource type="Animation" id="Animation_f04cw"]
-resource_name = "Attack2"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("17_0f7p7"), ExtResource("18_i8icf"), ExtResource("19_3irmb"), ExtResource("20_44p5v"), ExtResource("21_bl42n")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_krhvj"]
