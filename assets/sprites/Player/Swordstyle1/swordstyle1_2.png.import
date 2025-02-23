@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyjv2cx5o2ola"
-path="res://.godot/imported/Toasty.png-89c088bd6a2dd380f4c2ed5d8ed36944.ctex"
+uid="uid://6kehm2kp4sia"
+path="res://.godot/imported/swordstyle1_2.png-bca6e586e246f86b18575d06b2a08d74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Player/Toasty.png"
-dest_files=["res://.godot/imported/Toasty.png-89c088bd6a2dd380f4c2ed5d8ed36944.ctex"]
+source_file="res://assets/sprites/Player/Swordstyle1/swordstyle1_2.png"
+dest_files=["res://.godot/imported/swordstyle1_2.png-bca6e586e246f86b18575d06b2a08d74.ctex"]
 
 [params]
 
