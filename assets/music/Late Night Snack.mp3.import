@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x1fuarws1mvj"
+path="res://.godot/imported/Late Night Snack.mp3-a3d24920725fac0fb92a68420be8969f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Late Night Snack.mp3"
+dest_files=["res://.godot/imported/Late Night Snack.mp3-a3d24920725fac0fb92a68420be8969f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

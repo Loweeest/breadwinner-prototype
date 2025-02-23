@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://buxwdwsri25de"]
+[gd_scene load_steps=10 format=3 uid="uid://buxwdwsri25de"]
 
 [ext_resource type="Script" path="res://scenes/Home.gd" id="1_eoegp"]
 [ext_resource type="Texture2D" uid="uid://dn7v317y4qkbi" path="res://assets/backgrounds/main_bg.png" id="2_15ain"]
 [ext_resource type="FontFile" uid="uid://deu6ekn5l2ssr" path="res://assets/fonts/Daydream.ttf" id="3_2abtc"]
+[ext_resource type="AudioStream" uid="uid://llsuie3uhe1j" path="res://assets/music/time_for_adventure.mp3" id="4_8ivyx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tspj"]
 texture = ExtResource("2_15ain")
@@ -121,6 +122,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vge01")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ueba0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_r0weq")
 text = "EXIT"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8ivyx")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/ranking" to="." method="_on_ranking_pressed"]

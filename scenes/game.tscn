@@ -135,7 +135,7 @@ texture = ExtResource("1_i83j6")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_yduyu")
 
-[node name="Tutorial" type="Node2D"]
+[node name="game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ukf7y")

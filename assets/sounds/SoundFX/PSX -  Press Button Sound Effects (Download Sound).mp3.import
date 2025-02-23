@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3fihu67x147x"
+path="res://.godot/imported/PSX -  Press Button Sound Effects (Download Sound).mp3-0bc5d2bb6e9667806a43a58ca68777dd.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/SoundFX/PSX -  Press Button Sound Effects (Download Sound).mp3"
+dest_files=["res://.godot/imported/PSX -  Press Button Sound Effects (Download Sound).mp3-0bc5d2bb6e9667806a43a58ca68777dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
