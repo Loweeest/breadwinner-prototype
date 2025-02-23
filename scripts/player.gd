@@ -26,10 +26,21 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		animation.play("run")
 		velocity.x = direction * SPEED
 	else:
-		animation.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	update_animation()
 	move_and_slide()
+	
+func update_animation():
+	if velocity.x != 0:
+		animation.play("Run")
+	else:
+		animation.play("Idle")
+	
+	if velocity.y < 0 :
+		animation.play("Jump")
+	if velocity.y > 0 :
+		animation.play("Fall")
+	
