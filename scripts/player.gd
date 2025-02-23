@@ -6,6 +6,11 @@ extends CharacterBody2D
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -300.0
 
+@export var attacking = false
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		attack()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left"):
@@ -33,14 +38,25 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 	move_and_slide()
 	
-func update_animation():
-	if velocity.x != 0:
-		animation.play("Run")
-	else:
-		animation.play("Idle")
+func attack():
+	var overlapping_objects = $AttackArea.get_overlapping_areas()
 	
-	if velocity.y < 0 :
-		animation.play("Jump")
-	if velocity.y > 0 :
-		animation.play("Fall")
+	for area in overlapping_objects:
+		var parent = area.get_parent()
+		print(parent.name)
+	
+	attacking = true
+	animation.play("Attack1")
+	
+func update_animation():
+	if !attacking:
+		if velocity.x != 0:
+			animation.play("Run")
+		else:
+			animation.play("Idle")
+	
+		if velocity.y < 0 :
+			animation.play("Jump")
+		if velocity.y > 0 :
+			animation.play("Fall")
 	

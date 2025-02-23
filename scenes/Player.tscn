@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://nruq1d3k8b2w"]
+[gd_scene load_steps=40 format=3 uid="uid://nruq1d3k8b2w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vkx85"]
 [ext_resource type="Texture2D" uid="uid://bn70htullfmvb" path="res://assets/sprites/Player/Idle/idle1.png" id="2_dd767"]
@@ -21,9 +21,20 @@
 [ext_resource type="Texture2D" uid="uid://3nyfrx6p8wsi" path="res://assets/sprites/Player/Jump/jump6.png" id="20_3ouxj"]
 [ext_resource type="Texture2D" uid="uid://bxy467141m126" path="res://assets/sprites/Player/Swordstyle2/swordstyle2_4.png" id="20_44p5v"]
 [ext_resource type="Texture2D" uid="uid://fobpk2rbvtud" path="res://assets/sprites/Player/Swordstyle2/swordstyle2_5.png" id="21_bl42n"]
+[ext_resource type="Texture2D" uid="uid://cfjd5sdi4ox1w" path="res://assets/sprites/Player/Run/run1.png" id="22_v62ft"]
+[ext_resource type="Texture2D" uid="uid://dhb6stwuqyfy6" path="res://assets/sprites/Player/Run/run2.png" id="23_0vfju"]
+[ext_resource type="Texture2D" uid="uid://04nebcth07yr" path="res://assets/sprites/Player/Run/run3.png" id="24_wpaw0"]
+[ext_resource type="Texture2D" uid="uid://sgqqr0miv1bg" path="res://assets/sprites/Player/Run/run4.png" id="25_a5ena"]
+[ext_resource type="Texture2D" uid="uid://o4kcog7fm3lm" path="res://assets/sprites/Player/Run/run5.png" id="26_ar60q"]
+[ext_resource type="Texture2D" uid="uid://cb2k2ypbvq1qr" path="res://assets/sprites/Player/Run/run6.png" id="27_6nkfx"]
+[ext_resource type="Texture2D" uid="uid://dgk1n30dtxpri" path="res://assets/sprites/Player/Run/run7.png" id="28_h1v7e"]
+[ext_resource type="Texture2D" uid="uid://oudd0ly2seba" path="res://assets/sprites/Player/Run/run8.png" id="29_2p47e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_370f7"]
 radius = 9.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gube4"]
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_2vbty"]
 resource_name = "Attack1"
@@ -39,6 +50,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("13_r5h4y"), ExtResource("14_n6a56"), ExtResource("15_nyxr8"), ExtResource("16_yyurg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f04cw"]
@@ -120,10 +143,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_dd767")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_g6cfb"]
 resource_name = "Run"
-length = 0.5
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -131,10 +166,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_dd767")]
+"values": [ExtResource("22_v62ft"), ExtResource("23_0vfju"), ExtResource("24_wpaw0"), ExtResource("25_a5ena"), ExtResource("26_ar60q"), ExtResource("27_6nkfx"), ExtResource("28_h1v7e"), ExtResource("29_2p47e")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_krhvj"]
@@ -156,6 +191,13 @@ texture = ExtResource("2_dd767")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_370f7")
+
+[node name="AttackArea" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(16, 0)
+shape = SubResource("CapsuleShape2D_gube4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
