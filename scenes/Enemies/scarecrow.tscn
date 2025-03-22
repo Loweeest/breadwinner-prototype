@@ -1,0 +1,74 @@
+[gd_scene load_steps=18 format=3 uid="uid://cylsnskn4squd"]
+
+[ext_resource type="Script" path="res://scripts/Enemies/scarecrow.gd" id="1_i40ax"]
+[ext_resource type="Texture2D" uid="uid://dij3j6yx4g3nu" path="res://assets/sprites/Scarecrow/scarecrow_idle1.png" id="1_wilvk"]
+[ext_resource type="Texture2D" uid="uid://b3hrlht2qeei7" path="res://assets/sprites/Scarecrow/scarecrow_idle2.png" id="2_87m2l"]
+[ext_resource type="Texture2D" uid="uid://bal5k8jnas1yv" path="res://assets/sprites/Scarecrow/scarecrow_idle3.png" id="3_5yj7j"]
+[ext_resource type="Texture2D" uid="uid://my33rqs013wn" path="res://assets/sprites/Scarecrow/scarecrow_idle4.png" id="4_o2dxr"]
+[ext_resource type="Texture2D" uid="uid://bxry8kaau05eq" path="res://assets/sprites/Scarecrow/scarecrow_idle5.png" id="5_f5p18"]
+[ext_resource type="Texture2D" uid="uid://c4kvtil48xqb3" path="res://assets/sprites/Scarecrow/scarecrow_idle6.png" id="6_epmcm"]
+[ext_resource type="Texture2D" uid="uid://c8tjsljn2b11e" path="res://assets/sprites/Scarecrow/scarecrow_idle7.png" id="7_u2e8w"]
+[ext_resource type="Texture2D" uid="uid://ulp7vw0jed6r" path="res://assets/sprites/Scarecrow/scarecrow_idle8.png" id="8_6ceef"]
+[ext_resource type="Texture2D" uid="uid://bna08lap6duob" path="res://assets/sprites/Scarecrow/scarecrow_idle9.png" id="9_xiar1"]
+[ext_resource type="Texture2D" uid="uid://dirfrexunnqx7" path="res://assets/sprites/Scarecrow/scarecrow_idle10.png" id="10_wxxyt"]
+[ext_resource type="Texture2D" uid="uid://tkkexqkpnx0r" path="res://assets/sprites/Scarecrow/scarecrow_idle11.png" id="11_swrfc"]
+[ext_resource type="Texture2D" uid="uid://33j8qea21obl" path="res://assets/sprites/Scarecrow/scarecrow_idle12.png" id="12_xmk6n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrtk"]
+radius = 11.5
+height = 36.0
+
+[sub_resource type="Animation" id="Animation_spkfi"]
+resource_name = "Idle"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_wilvk"), ExtResource("2_87m2l"), ExtResource("3_5yj7j"), ExtResource("4_o2dxr"), ExtResource("5_f5p18"), ExtResource("6_epmcm"), ExtResource("7_u2e8w"), ExtResource("8_6ceef"), ExtResource("9_xiar1"), ExtResource("10_wxxyt"), ExtResource("11_swrfc"), ExtResource("12_xmk6n")]
+}
+
+[sub_resource type="Animation" id="Animation_6nupx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_wilvk")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbom7"]
+_data = {
+"Idle": SubResource("Animation_spkfi"),
+"RESET": SubResource("Animation_6nupx")
+}
+
+[node name="Scarecrow" type="Node2D"]
+script = ExtResource("1_i40ax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wilvk")
+
+[node name="scarecrow_hitbox" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="scarecrow_hitbox"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_fjrtk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pbom7")
+}
+autoplay = "Idle"

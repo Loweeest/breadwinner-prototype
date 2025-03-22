@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://plame563l4rg"]
+
+[ext_resource type="Texture2D" uid="uid://ciuafhybpw04h" path="res://assets/backgrounds/Background UI/bg1.png" id="1_ysc0w"]
+[ext_resource type="FontFile" uid="uid://cyq30xd3u16wh" path="res://assets/fonts/Pixel Digivolve.otf" id="2_hbii3"]
+[ext_resource type="FontFile" uid="uid://i3kqvdxip34h" path="res://assets/fonts/PixelOperator8.ttf" id="3_bp3og"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fml16"]
+texture = ExtResource("1_ysc0w")
+
+[node name="Rankings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fml16")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -228.5
+offset_right = 228.5
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_hbii3")
+theme_override_font_sizes/font_size = 90
+text = "Rankings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 136.0
+offset_right = 207.0
+offset_bottom = 583.0
+theme_override_constants/separation = 33
+
+[node name="level 1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bp3og")
+theme_override_font_sizes/font_size = 40
+text = "LVL 1
+"
+
+[node name="level 2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bp3og")
+theme_override_font_sizes/font_size = 40
+text = "LVL 2"
+
+[node name="level 3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bp3og")
+theme_override_font_sizes/font_size = 40
+text = "LVL 3"
+
+[node name="level 4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bp3og")
+theme_override_font_sizes/font_size = 40
+text = "LVL 4"
+
+[node name="level 5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bp3og")
+theme_override_font_sizes/font_size = 40
+text = "LVL 5"

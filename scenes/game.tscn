@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dralgvevyknkw"]
+[gd_scene load_steps=8 format=3 uid="uid://dralgvevyknkw"]
 
 [ext_resource type="Texture2D" uid="uid://cr28i305gvuir" path="res://assets/sprites/world_tileset.png" id="1_i83j6"]
-[ext_resource type="PackedScene" uid="uid://nruq1d3k8b2w" path="res://scenes/Player.tscn" id="1_icru8"]
+[ext_resource type="PackedScene" uid="uid://nruq1d3k8b2w" path="res://scenes/Player/Player.tscn" id="1_icru8"]
+[ext_resource type="PackedScene" uid="uid://cylsnskn4squd" path="res://scenes/Enemies/scarecrow.tscn" id="5_hmul0"]
+[ext_resource type="PackedScene" uid="uid://degy5k0dy810s" path="res://scenes/Interactables/checkpoint.tscn" id="6_ikktw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cn3di"]
+load_path = "res://.godot/imported/BG Image.png-bc5e83d18b1fa2d1f463a3d86a3f879b.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yduyu"]
 texture = ExtResource("1_i83j6")
@@ -9,6 +14,7 @@ texture = ExtResource("1_i83j6")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -25,6 +31,7 @@ texture = ExtResource("1_i83j6")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
 4:1/0 = 0
 5:1/0 = 0
@@ -137,14 +144,37 @@ sources/1 = SubResource("TileSetAtlasSource_yduyu")
 
 [node name="game" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -214.0
+offset_right = 438.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_cn3di")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ukf7y")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 1, 0, 0, 1, 0, 65533, 1, 0, 2, 1, 0, 3, 1, 0, 131069, 1, 1, 131071, 1, 1, 65536, 1, 1, 65538, 1, 1, 65539, 1, 1, 131075, 1, 1, 131074, 1, 1, 131072, 1, 1, 196607, 1, 1, 196605, 1, 1, 262141, 1, 1, 262142, 1, 1, 262143, 1, 1, 196608, 1, 1, 196610, 1, 1, 196611, 1, 1, 65532, 1, 1, 131068, 1, 1, 196604, 1, 1, 262140, 1, 1, 262139, 1, 1, 196603, 1, 1, 131067, 1, 1, 65531, 1, 1, -5, 1, 1, -65541, 1, 1, -65540, 1, 1, -4, 1, 1, 131070, 1, 1, 196606, 1, 1, 65534, 1, 0, -131076, 1, 1, -131077, 1, 1, -196613, 1, 1, -196612, 1, 1, -262148, 1, 1, -262149, 1, 1, 65541, 1, 1, 65542, 1, 1, 131078, 1, 1, 131077, 1, 1, 5, 1, 0, 6, 1, 0, 9, 1, 1, 65545, 1, 1, 8, 1, 1, 65544, 1, 1, 131080, 1, 1, 131081, 1, 1, -65528, 1, 0, -65527, 1, 0, -65523, 1, 1, 13, 1, 1, 65549, 1, 1, 131085, 1, 1, 131086, 1, 1, 65550, 1, 1, 14, 1, 1, -65522, 1, 1, -131059, 1, 0, -131058, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -65517, 1, 1, -65516, 1, 1, -65515, 1, 1, 21, 1, 1, 20, 1, 1, 19, 1, 1, 65557, 1, 1, 65556, 1, 1, 65555, 1, 1, 131091, 1, 1, 131092, 1, 1, 131093, 1, 1, -131057, 589825, 0, -131056, 655361, 0, -131055, 655361, 0, -131054, 720897, 0, -65534, 196609, 8, -196606, 196609, 8, -131070, 131073, 8, -1, 131073, 8, -131073, 131073, 4, -327678, 131073, 4)
+layer_0/tile_data = PackedInt32Array(65535, 1, 0, 0, 1, 0, 65533, 1, 0, 131069, 1, 1, 131071, 1, 1, 65536, 1, 1, 131072, 1, 1, 196607, 1, 1, 196605, 1, 1, 262141, 1, 1, 262142, 1, 1, 262143, 1, 1, 196608, 1, 1, 131070, 1, 1, 196606, 1, 1, 65534, 1, 0, 9, 1, 1, 65545, 1, 1, -65527, 1, 0, -65523, 1, 1, 13, 1, 1, 65549, 1, 1, 131085, 1, 1, 131086, 1, 1, 65550, 1, 1, 14, 1, 1, -65522, 1, 1, -131059, 1, 0, -131058, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -65517, 1, 1, -65516, 1, 1, -65515, 1, 1, 21, 1, 1, 20, 1, 1, 19, 1, 1, 65557, 1, 1, 65556, 1, 1, 65555, 1, 1, 131091, 1, 1, 131092, 1, 1, 131093, 1, 1, -131057, 589825, 0, -131056, 655361, 0, -131055, 655361, 0, -131054, 720897, 0, -131050, 1, 0, -131049, 1, 0, -131048, 1, 0, -65514, 1, 1, -65513, 1, 1, -65512, 1, 1, 24, 1, 1, 23, 1, 1, 22, 1, 1, 65558, 1, 1, 65559, 1, 1, 65560, 1, 1, 131096, 1, 1, 131095, 1, 1, 131094, 1, 1, 196621, 1, 1, 196622, 1, 1, 196627, 1, 1, 196628, 1, 1, 196629, 1, 1, 196630, 1, 1, 196631, 1, 1, 196632, 1, 1, 65532, 1, 0, 65531, 1, 0, 65530, 1, 0, 131068, 1, 1, 131067, 1, 1, 131066, 1, 1, 196602, 1, 1, 196603, 1, 1, 196604, 1, 1, 262140, 1, 1, 262139, 1, 1, 262138, 1, 1, 4, 1, 0, 5, 1, 0, 6, 1, 0, -65526, 1, 0, 65540, 1, 1, 65541, 1, 1, 65542, 1, 1, 131077, 1, 1, 131076, 1, 1, 131078, 1, 1, 196614, 1, 1, 196613, 1, 1, 196612, 1, 1, 10, 1, 1, 65546, 1, 1, 131082, 1, 1, 196618, 1, 1, 196617, 1, 1, 131081, 1, 1, -131047, 589825, 0, -131046, 655361, 0, -131045, 655361, 0, -131044, 655361, 0, -131043, 655361, 0, -131042, 655361, 0, -131041, 720897, 0, -131040, 131073, 0, -131039, 131073, 0, -131038, 131073, 0, -131037, 131073, 0, -131036, 131073, 0, -65503, 131073, 1, -65502, 131073, 1, -65501, 131073, 1, 35, 131073, 1, 34, 131073, 1, 33, 131073, 1, 65569, 131073, 1, 65570, 131073, 1, 65571, 131073, 1, 131107, 131073, 1, 131106, 131073, 1, 131105, 131073, 1, 196641, 131073, 1, 196642, 131073, 1, 196643, 131073, 1, -65500, 131073, 1, -65504, 131073, 1, 36, 131073, 1, 65572, 131073, 1, 131108, 131073, 1, 196644, 131073, 1, 32, 131073, 1, 65568, 131073, 1, 131104, 131073, 1, 196640, 131073, 1, -262105, 131073, 0, -262104, 131073, 0, -262103, 131073, 0, -458715, 131073, 0, -458716, 131073, 0, -458717, 131073, 0, -524256, 131073, 0, -524257, 131073, 0, -524258, 131073, 0, -655333, 131073, 0, -655334, 131073, 0, -655335, 131073, 0)
 
-[node name="Camera2D" type="Camera2D" parent="TileMap"]
-position = Vector2(20, -30)
-zoom = Vector2(4, 4)
+[node name="Checkpoint" parent="." instance=ExtResource("6_ikktw")]
+position = Vector2(-74, -16)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("6_ikktw")]
+position = Vector2(542, -47)
+
+[node name="Scarecrow" parent="." instance=ExtResource("5_hmul0")]
+position = Vector2(102, -21)
+
+[node name="Scarecrow2" parent="." instance=ExtResource("5_hmul0")]
+position = Vector2(153, -36)
+
+[node name="Scarecrow3" parent="." instance=ExtResource("5_hmul0")]
+position = Vector2(234, -52)
 
 [node name="Player" parent="." instance=ExtResource("1_icru8")]
 position = Vector2(-35, -23)

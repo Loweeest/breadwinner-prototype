@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://degy5k0dy810s"]
+
+[ext_resource type="Script" path="res://scripts/Interactable/checkpoint.gd" id="1_thkvh"]
+[ext_resource type="Texture2D" uid="uid://b7gti3wcmlkmq" path="res://assets/sprites/Interactables/Campfire/campfire.png" id="3_nx8ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n14hn"]
+size = Vector2(38, 42)
+
+[sub_resource type="Animation" id="Animation_yubr6"]
+resource_name = "Activated"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns"), ExtResource("3_nx8ns")]
+}
+
+[sub_resource type="Resource" id="Resource_0mf3l"]
+metadata/__load_path__ = "res://assets/sprites/Palm Tree Island (TEMPORARY PLACEHOLDER)/Sprites/Objects/Flag/Flag 01.png"
+
+[sub_resource type="Animation" id="Animation_eural"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("Resource_0mf3l")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prggl"]
+_data = {
+"Activated": SubResource("Animation_yubr6"),
+"RESET": SubResource("Animation_eural")
+}
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_thkvh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_n14hn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_prggl")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
